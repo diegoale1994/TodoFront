@@ -1,0 +1,13 @@
+<div class="container">
+  Welcome {{ user }}. You can manage your todos at
+  <a [routerLink]="['/todos']">todos compoment</a>
+</div>
+
+<div class="container">
+ Click here to get a customized Welcome Message
+ <button (click)="getWelcomeMessageWithParams()" class="btn btn-success">Welcome</button>
+</div>
+
+<div class="container">
+  your customized Welcome Message {{welcomeMessageFromService}}
+ </div>
