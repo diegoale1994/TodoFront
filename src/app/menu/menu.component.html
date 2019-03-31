@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div><a href="https://rexsoft.pro" class="navbar-brand">RexSoft</a></div>
+        <div class="ml-5"><a href="https://rexsoft.pro" class="navbar-brand">RexSoft</a></div>
            <ul class="navbar-nav">
                <li *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()"><a [routerLink] ="['/']" class="nav-link">{{ 'nav.home' | translate }}</a></li>
                <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"><a [routerLink] ="['/todos']" class="nav-link">{{ 'nav.todo' | translate }}</a></li> 

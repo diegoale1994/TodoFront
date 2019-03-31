@@ -3,14 +3,19 @@ import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 import { BasicAuthenticationService, AUTHENTICATED_USER, TOKEN } from '../service/basic-authentication.service.';
 
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { shake } from 'ngx-animate';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('shake', [transition('* => *', useAnimation(shake))])
+  ],
 })
 export class LoginComponent implements OnInit {
-
+  shake: any;
   username = '';
   password = '';
   errorMessage = 'Invalid Credencials';

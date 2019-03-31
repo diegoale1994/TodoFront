@@ -1,4 +1,4 @@
-<div class="container mt-5 text-center animated fadeIn fast">
+<div class="container mt-5 text-center animated fadeIn fast" [@bounceIn] ="{ value: bounceIn, params: { timing: '' || 5, delay: '' || 0 } }">
   <p class="lead">{{ user }} {{ 'welcome.main' | translate }}
   <a [routerLink]="['/todos']">todos compoment</a> </p>
   <img src="https://rexsoft.pro/assets/images/logo.png" alt="" class="img-fluid" width="400px">

@@ -3,6 +3,9 @@ import { TodoDataService } from '../service/data/todo-data.service';
 import { Router } from '@angular/router';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service.';
 
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { zoomIn } from 'ngx-animate';
+
 export class Todo {
   constructor(
     public id: number,
@@ -16,11 +19,14 @@ export class Todo {
 @Component({
   selector: 'app-list-todos',
   templateUrl: './list-todos.component.html',
-  styleUrls: ['./list-todos.component.css']
+  styleUrls: ['./list-todos.component.css'],
+  animations: [
+    trigger('zoomIn', [transition('* => *', useAnimation(zoomIn))])
+  ],
 })
 
 export class ListTodosComponent implements OnInit {
-
+  zoomIn: any;
   todos: Todo[];
   message: string;
   constructor(private todoDataService: TodoDataService,

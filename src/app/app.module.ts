@@ -17,6 +17,11 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+// import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 
 @NgModule({
   declarations: [
@@ -32,8 +37,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   ],
   imports: [
     BrowserModule,
+    LoadingBarHttpClientModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {

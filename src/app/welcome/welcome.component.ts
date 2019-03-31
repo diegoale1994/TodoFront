@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WelcomeDataService } from '../service/data/welcome-data.service';
-
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounceIn } from 'ngx-animate';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  styleUrls: ['./welcome.component.css'],
+  animations: [
+    trigger('bounceIn', [transition('* => *', useAnimation(bounceIn))])
+  ],
 })
 export class WelcomeComponent implements OnInit {
+  bounceIn: any;
   user = '';
   welcomeMessageFromService: string;
   constructor(private activatedRoute: ActivatedRoute,
