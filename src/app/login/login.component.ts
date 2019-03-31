@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
-import { BasicAuthenticationService } from '../service/basic-authentication.service.';
+import { BasicAuthenticationService, AUTHENTICATED_USER, TOKEN } from '../service/basic-authentication.service.';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
 })
 export class LoginComponent implements OnInit {
 
-  username = 'zchuldiner';
+  username = '';
   password = '';
   errorMessage = 'Invalid Credencials';
   invalidLogin = false;
@@ -19,6 +20,9 @@ export class LoginComponent implements OnInit {
               private basicAuthenticationService: BasicAuthenticationService) { }
 
   ngOnInit() {
+    if ( sessionStorage.getItem(AUTHENTICATED_USER) && sessionStorage.getItem(TOKEN) ) {
+      this.router.navigate(['/todos']);
+    }
   }
 
   handleLogin() {
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleBasicAuthLogin() {
-    this.basicAuthenticationService.executeAuthenticationService(this.username, this.password)
+    this.basicAuthenticationService.executeJWTAuthenticationService(this.username, this.password)
     .subscribe (data => {
       console.log(data);
       this.router.navigate(['/welcome', this.username]);

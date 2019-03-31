@@ -1,0 +1,23 @@
+{
+    "login.texto" : "Ingresa con tu usuario y contraseña",
+    "login.username" : "Usuario",
+    "login.password" : "Contraseña",
+    "login.login" : "Entrar",
+    "login.form.invalid" : "Credenciales invalidas !",
+    "login.form.required" : "No puede estar vacio !",
+    "nav.home" : "Inicio",
+    "nav.logout" : "Salir",
+    "nav.todo" : "Tareas",
+    "welcome.main" : "Bienvenido, puedes administrar tus tareas en",
+    "todos.table.description" : "Descripcion",
+    "todos.table.complete" : "Esta completo?",
+    "todos.table.new" : "Crear nueva tarea",
+    "todos.table.date" : "Fecha Objetivo",
+    "todos.table.update" : "Actualizar",
+    "todos.table.delete" : "Borrar",
+    "todo.new.yes" : "Si",
+    "todo.new.no" : "No",
+    "todo.new.save" : "Guardar",
+    "logout.main" : "Acabas de cerrar session",
+    "logout.ty" : "Gracias por testear esta aplicacion"
+  }

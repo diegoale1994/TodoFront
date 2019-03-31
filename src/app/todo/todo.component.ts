@@ -3,6 +3,7 @@ import { TodoDataService } from '../service/data/todo-data.service';
 import { Todo } from '../list-todos/list-todos.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service.';
 
 @Component({
   selector: 'app-todo',
@@ -18,9 +19,10 @@ export class TodoComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.todo = new Todo(this.activatedRoute.snapshot.params.id, '', false, new Date());
+    this.todo = new Todo(this.activatedRoute.snapshot.params.id, '', sessionStorage.getItem(AUTHENTICATED_USER), false, new Date());
     if (+this.activatedRoute.snapshot.params.id !== -1) {
-      this.todoDataService.retrieveATodo(this.activatedRoute.snapshot.params.id, 'diego').subscribe(todo => {
+      this.todoDataService.retrieveATodo(this.activatedRoute.snapshot.params.id,
+        sessionStorage.getItem(AUTHENTICATED_USER)).subscribe(todo => {
         this.todo = todo;
       });
     }
@@ -28,11 +30,13 @@ export class TodoComponent implements OnInit {
 
   saveTodo() {
     if (+this.activatedRoute.snapshot.params.id === -1) {
-        this.todoDataService.createATodo('diego', this.todo).subscribe(data => {
+        console.log(this.todo);
+        this.todoDataService.createATodo(sessionStorage.getItem(AUTHENTICATED_USER), this.todo).subscribe(data => {
           this.router.navigate(['/todos']);
         });
     } else {
-      this.todoDataService.updateATodo(this.activatedRoute.snapshot.params.id, 'diego', this.todo).subscribe(todo => {
+      this.todoDataService.updateATodo(this.activatedRoute.snapshot.params.id,
+        sessionStorage.getItem(AUTHENTICATED_USER), this.todo).subscribe(todo => {
         this.router.navigate(['/todos']);
       });
     }

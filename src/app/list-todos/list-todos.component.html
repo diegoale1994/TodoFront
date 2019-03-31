@@ -1,14 +1,14 @@
-<div class="container mt-5">
+<div class="container mt-5 animated fadeIn fast">
   <div class="alert alert-success" *ngIf="message">{{ message }}</div>
 <table class="table">
   <caption>Ty todo's</caption>
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Is Complete?</th>
-      <th>Target date</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>{{ 'todos.table.description' | translate }}</th>
+      <th>{{ 'todos.table.complete' | translate }}</th>
+      <th>{{ 'todos.table.date' | translate }}</th>
+      <th>{{ 'todos.table.update' | translate }}</th>
+      <th>{{ 'todos.table.delete' | translate }}</th>
     </tr>
   </thead>
   <tbody>
@@ -16,10 +16,10 @@
         <td>{{todo.description}}</td>
         <td>{{todo.done}}</td>
         <td>{{todo.targetDate | date | uppercase}}</td>
-        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-        <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger">Delete Todo</button></td>
+        <td><button (click)="updateTodo(todo.id)" class="btn btn-success">{{ 'todos.table.update' | translate }}</button></td>
+        <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger">{{ 'todos.table.delete' | translate }}</button></td>
       </tr>
   </tbody>
 </table>
-<button (click)="create()" class="btn btn-success">Create a new ToDo</button>
+<button (click)="create()" class="btn btn-success">{{ 'todos.table.new' | translate }}</button>
 </div>

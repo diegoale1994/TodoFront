@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Router } from '@angular/router';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service.';
 
 export class Todo {
   constructor(
     public id: number,
     public description: string,
+    public username: string,
     public done: boolean,
     public targetDate: Date
   ) { }
@@ -29,7 +31,7 @@ export class ListTodosComponent implements OnInit {
   }
 
   getAllTodos() {
-    this.todoDataService.retrieveAllTodos('dementor').subscribe(Todos => {
+    this.todoDataService.retrieveAllTodos(sessionStorage.getItem(AUTHENTICATED_USER)).subscribe(Todos => {
       this.todos = Todos;
     });
   }

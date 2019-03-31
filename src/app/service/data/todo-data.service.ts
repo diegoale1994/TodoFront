@@ -12,23 +12,23 @@ export class TodoDataService {
   constructor(private http: HttpClient) { }
 
   retrieveAllTodos(username: string) {
-    return this.http.get<Todo[]>(`${API_URL}/users/${username}/todos`);
+    return this.http.get<Todo[]>(`${API_URL}/jpa/users/${username}/todos`);
   }
 
   deleteATodo(id: number, username: string) {
-      return this.http.delete(`${API_URL}/users/${username}/todos/${id}`);
+      return this.http.delete(`${API_URL}/jpa/users/${username}/todos/${id}`);
   }
 
   retrieveATodo(id: number, username: string) {
-    return this.http.get<Todo>(`${API_URL}/users/${username}/todos/${id}`);
+    return this.http.get<Todo>(`${API_URL}/jpa/users/${username}/todos/${id}`);
 }
 
   updateATodo(id: number, username: string, todo: Todo) {
-  return this.http.put<Todo>(`${API_URL}/users/${username}/todos/${id}`, todo);
+  return this.http.put<Todo>(`${API_URL}/jpa/users/${username}/todos/${id}`, todo);
 }
 
   createATodo(username: string, todo: Todo) {
-  return this.http.post(`${API_URL}/users/${username}/todos`, todo);
+    return this.http.post(`${API_URL}/jpa/users/${username}/todos`, todo);
 }
 
 

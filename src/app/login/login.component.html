@@ -1,14 +1,74 @@
-<h1>Login</h1>
-<div class="container">
-  <div *ngIf="invalidLogin" class="alert alert-warning">
-      <small>{{errorMessage}}</small>
-  </div>
-  <div>
-    User Name :
-    <input type="text" name="username" [(ngModel)]="username" /> Password :
-    <input type="password" name="password" [(ngModel)]="password" />
-    <button type="button" class="btn btn-success" (click)="handleBasicAuthLogin()">
-      Login
-    </button>
+<div class="container text-center mt-5 animated fadeIn fast">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <p class="lead">Login</p>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <p class="lead">{{ 'login.texto' | translate }}<br /></p>
+            <p class="lead">
+              <strong>(admin - admin, diego - hangar18)</strong>
+            </p>
+            <img
+              src="https://rexsoft.pro/assets/images/logo.png"
+              alt=""
+              width="200px;"
+              class="img-fluid"
+            />
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form #forma="ngForm">
+          <div *ngIf="invalidLogin" class="alert alert-warning">
+            <small>{{ 'login.form.invalid' | translate }}</small>
+          </div>
+          <p class="lead">{{ 'login.username' | translate }} :</p>
+          <div class="input-group input-group-lg">
+            <input
+            [ngClass]="{'is-valid': !usernameV.errors && usernameV.touched,'is-invalid': usernameV.errors && usernameV.touched}"
+              type="text"
+              name="username"
+              [(ngModel)]="username"
+              class="form-control"
+              #usernameV="ngModel"
+              required
+            />
+            <div *ngIf="usernameV.errors?.required" class="invalid-feedback">
+                <span class="lead">{{ 'login.form.required' | translate }}</span>
+            </div>
+          </div>
+          <p class="lead">{{ 'login.password' | translate }} :</p>
+          <div class="input-group input-group-lg">
+            <input
+            [ngClass]="{'is-valid': !passwordV.errors && passwordV.touched,'is-invalid': passwordV.errors && passwordV.touched}"
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              class="form-control"
+              #passwordV = "ngModel"
+              required
+            />
+            <div *ngIf="passwordV.errors?.required" class="invalid-feedback">
+                <span class="lead">{{ 'login.form.required' | translate }}</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn btn-success btn-lg btn-block mt-3"
+            (click)="handleBasicAuthLogin()"
+          >
+          {{ 'login.login' | translate }}
+          </button>
+        </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

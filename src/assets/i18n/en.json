@@ -1,0 +1,23 @@
+{
+    "login.texto" : "Get in with your username and password",
+    "login.username" : "Username",
+    "login.password" : "Password",
+    "login.login" : "Login",
+    "login.form.invalid" : "Invalid Credencials !",
+    "login.form.required" : "Cannot be null !",
+    "nav.home" : "Home",
+    "nav.logout" : "Logout",
+    "nav.todo" : "ToDo",
+    "welcome.main" : "Welcome back, You can manage your todos at",
+    "todos.table.description" : "Description",
+    "todos.table.complete" : "Is Complete?",
+    "todos.table.new" : "Create a new ToDo",
+    "todos.table.date" : "Target date",
+    "todos.table.update" : "Update",
+    "todos.table.delete" : "Delete",
+    "todo.new.yes" : "Yes",
+    "todo.new.no" : "No",
+    "todo.new.save" : "Save",
+    "logout.main" : "You are logged out",
+    "logout.ty" : "Thanks for using my app"
+  }

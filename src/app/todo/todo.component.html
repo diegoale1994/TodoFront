@@ -6,13 +6,22 @@
   </div>
   <form (ngSubmit) = "saveTodo()" #todoForm = "ngForm">
     <fieldset class="form-group">
-      <label for="Descripcion">Description</label>
+      <label for="Descripcion">{{ 'todos.table.description' | translate }}</label>
       <input type="text" class="form-control" name="description" required [(ngModel)]="todo.description" />
     </fieldset>
     <fieldset class="form-group">
-      <label for="Descripcion">Description</label>
+            <div class="form-radio">
+                <label class="form-check-label" for="gridCheck">
+                    {{ 'todos.table.complete' | translate }}
+                </label><br>
+              <input type="radio" name="status" value="true" [(ngModel)]="todo.done" required/> {{ 'todo.new.yes' | translate }}
+              <input type="radio" name="status" value="false" [(ngModel)]="todo.done"/>  {{ 'todo.new.no' | translate }}
+            </div>
+      </fieldset>
+    <fieldset class="form-group">
+      <label for="Descripcion">{{ 'todos.table.date' | translate }}</label>
       <input type="date" class="form-control" name="targetDate" required [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" />
     </fieldset>
-    <button [disabled] = "!todoForm.valid " type = "submit" class="btn btn-success">Save</button>
+    <button [disabled] = "!todoForm.valid " type = "submit" class="btn btn-success">{{ 'todo.new.save' | translate }}</button>
   </form>
 </div>
